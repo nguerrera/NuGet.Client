@@ -1,7 +1,7 @@
 ### Constants ###
 $DefaultConfiguration = 'debug'
 $DefaultReleaseLabel = 'zlocal'
-$DefaultMSBuildVersion = '15'
+$DefaultMSBuildVersion = '15.1'
 
 $NuGetClientRoot = Split-Path -Path $PSScriptRoot -Parent
 
@@ -15,8 +15,9 @@ $Nupkgs = Join-Path $NuGetClientRoot nupkgs
 $Artifacts = Join-Path $NuGetClientRoot artifacts
 
 $DotNetExe = Join-Path $CLIRoot 'dotnet.exe'
-$MSBuildRoot = Join-Path ${env:ProgramFiles(x86)} 'MSBuild\'
-$MSBuildExeRelPath = 'bin\msbuild.exe'
+$MSBuild14Root = Join-Path ${env:ProgramFiles(x86)} 'MSBuild\'
+$MSBuild14ExeRelPath = 'bin\msbuild.exe'
+$MSBuild15Exe = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio 15.0\MSBuild\15.0\bin\msbuild.exe'
 $NuGetExe = Join-Path $NuGetClientRoot '.nuget\nuget.exe'
 $XunitConsole = Join-Path $NuGetClientRoot 'packages\xunit.runner.console.2.1.0\tools\xunit.console.exe'
 $ILMerge = Join-Path $NuGetClientRoot 'packages\ILMerge.2.14.1208\tools\ILMerge.exe'
@@ -295,8 +296,8 @@ Function Restore-SolutionPackages{
     param(
         [Alias('path')]
         [string]$SolutionPath,
-        [ValidateSet(4, 12, 14, 15)]
-        [int]$MSBuildVersion
+        [ValidateSet("4", "12", "14", "15.1")]
+        [string]$MSBuildVersion = $DefaultMSBuildVersion
     )
     $opts = , 'restore'
     if (-not $SolutionPath) {
@@ -525,8 +526,16 @@ Function Get-MSBuildExe {
         [string]$MSBuildVersion
     )
 
-    $MSBuildExe = Join-Path $MSBuildRoot ($MSBuildVersion + ".0")
-    Join-Path $MSBuildExe $MSBuildExeRelPath
+    if ($MSBuildVersion -lt 15)
+    {
+        $MSBuildExe = Join-Path $MSBuild14Root ($MSBuildVersion + ".0")
+        return Join-Path $MSBuildExe $MSBuild14ExeRelPath
+    }
+
+    $MSBuild15Exe
+}
+
+Function Build-MSBuildInstanceFinder {
 }
 
 Function Build-ClientsProjects {

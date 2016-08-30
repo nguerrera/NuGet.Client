@@ -110,7 +110,7 @@ Invoke-BuildStep 'Building NuGet.Core projects' {
 ## Building the VS15 Tooling solution
 Invoke-BuildStep 'Building NuGet.Clients projects - VS15 dependencies' {
         param($Configuration, $ReleaseLabel, $BuildNumber, $SkipRestore, $Fast)
-        Build-ClientsProjects $Configuration $ReleaseLabel $BuildNumber -MSBuildVersion "15" -SkipRestore:$SkipRestore -Fast:$Fast
+        Build-ClientsProjects $Configuration $ReleaseLabel $BuildNumber -MSBuildVersion "15.1" -SkipRestore:$SkipRestore -Fast:$Fast
     } `
     -args $Configuration, $ReleaseLabel, $BuildNumber, $SkipRestore, $Fast `
     -skip:$SkipVS15 `
@@ -145,7 +145,7 @@ Invoke-BuildStep 'Running NuGet.Core tests' {
 Invoke-BuildStep 'Running NuGet.Clients tests - VS15 dependencies' {
         param($Configuration)
         # We don't run command line tests on VS15 as we don't build a nuget.exe for this version
-        Test-ClientsProjects -Configuration $Configuration -MSBuildVersion "15" -SkipProjects 'NuGet.CommandLine.Test'
+        Test-ClientsProjects -Configuration $Configuration -MSBuildVersion "15.1" -SkipProjects 'NuGet.CommandLine.Test'
     } `
     -args $Configuration `
     -skip:((-not $RunTests) -or $SkipVS15) `

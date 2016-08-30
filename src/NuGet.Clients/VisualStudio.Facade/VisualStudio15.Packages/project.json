@@ -14,13 +14,21 @@
     "Microsoft.VisualStudio.Text.UI": "15.0.25123-Dev15Preview",
     "Microsoft.VisualStudio.Text.UI.Wpf": "15.0.25123-Dev15Preview",
     "Microsoft.VisualStudio.Threading": "15.0.20-pre",
-    "Microsoft.VSSDK.BuildTools": "15.0.25604-Preview4"
+    "Microsoft.VSSDK.BuildTools": "15.0.25604-Preview4",
+    "Microsoft.Build":{
+        "version": "0.1.0-preview-00033-160829",
+        "exclude": "runtime"
+      },
+    "Microsoft.Build.Framework": {
+        "version": "0.1.0-preview-00033-160829",
+        "exclude": "runtime"
+      }
   },
   "frameworks": {
-    "net46": {}
+    "net462": {}
   },
   "runtimes": {
-    "win-anycpu": {},
-    "win": {}
+    "win": {},
+    "win-anycpu": {}
   }
 }

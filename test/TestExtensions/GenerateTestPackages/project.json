@@ -3,7 +3,7 @@
     "NuGet.Core": "2.14.0-rtm-830"
   },
   "frameworks": {
-    "net46": {}
+    "net462": {}
   },
   "runtimes": {
     "win-anycpu": {},

@@ -3,7 +3,7 @@
     "Microsoft.VisualStudio.OLE.Interop": "7.10.6070"
   },
   "frameworks": {
-    "net46": {}
+    "net462": {}
   },
   "runtimes": {
     "win-anycpu": {},

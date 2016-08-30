@@ -4,7 +4,7 @@
   <PropertyGroup>
     <NoWarn>1762</NoWarn>
     <TargetFrameworkProfile />
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
     <DefineConstants>TRACE;DEBUG;CODE_ANALYSIS</DefineConstants>

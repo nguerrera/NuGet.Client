@@ -14,7 +14,7 @@
     "Microsoft.VisualStudio.TextManager.Interop.10.0": "10.0.30319"
   },
   "frameworks": {
-    "net46": {}
+    "net462": {}
   },
   "runtimes": {
     "win-anycpu": {},

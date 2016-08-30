@@ -2,7 +2,10 @@
   "dependencies": {
     "NuGet.ProjectManagement": "3.6.0-*",
     "NuGet.PackageManagement": "3.6.0-*",
-    "NuGet.Protocol.Core.v2": "3.6.0-*"
+    "NuGet.Protocol.Core.v2": "3.6.0-*",
+    "Microsoft.Build": "14.3.0-prerelease01",
+    "Microsoft.Build.Framework": "14.3.0-prerelease01",
+    "Microsoft.VisualStudio.Setup.Configuration.Interop": "1.2.143-develop-1996"
   },
   "frameworks": {
     "net45": {}
