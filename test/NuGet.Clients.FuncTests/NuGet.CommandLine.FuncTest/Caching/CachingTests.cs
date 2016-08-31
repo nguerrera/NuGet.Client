@@ -183,7 +183,7 @@ namespace NuGet.CommandLine.Test.Caching
         }
 
         /// <summary>
-        /// There is currently no way to disable getting the package from the global packages folder.
+        /// -NoCache disables reading from the global packages folder.
         /// </summary>
         [Theory]
         [InlineData(typeof(InstallPackagesConfigCommand), CachingType.Default, ServerType.V2, true)]
