@@ -199,7 +199,7 @@ Function Install-DotnetCLI {
     $cli = @{
             Root = $CLIRoot
             DotNetExe = Join-Path $CLIRoot 'dotnet.exe'
-            DotNetInstallUrl = 'https://raw.githubusercontent.com/dotnet/cli/4bd9bb92cc3636421cd01baedbd8ef3e41aa1e22/scripts/obtain/dotnet-install.ps1'
+            DotNetInstallUrl = 'https://raw.githubusercontent.com/dotnet/cli/master/scripts/obtain/dotnet-install.ps1'
         }
 
     $env:DOTNET_HOME=$cli.Root
@@ -234,7 +234,7 @@ Function Install-DotnetCLIToILMergePack {
     $cli = @{
             Root = $CLIRootForPack
             DotNetExe = Join-Path $CLIRootForPack 'dotnet.exe'
-            DotNetInstallUrl = 'https://raw.githubusercontent.com/dotnet/cli/4bd9bb92cc3636421cd01baedbd8ef3e41aa1e22/scripts/obtain/dotnet-install.ps1'
+            DotNetInstallUrl = 'https://raw.githubusercontent.com/dotnet/cli/master/scripts/obtain/dotnet-install.ps1'
             Version = '2.1.300'
         }
 
