@@ -9,7 +9,6 @@ $PackageReleaseVersion = "4.6.0"
 
 $NuGetClientRoot = Split-Path -Path $PSScriptRoot -Parent
 $CLIRoot = Join-Path $NuGetClientRoot cli
-$CLIRootForPack = Join-Path $NuGetClientRoot "cli2.1.300"
 $Artifacts = Join-Path $NuGetClientRoot artifacts
 $Nupkgs = Join-Path $Artifacts nupkgs
 $ReleaseNupkgs = Join-Path $Artifacts ReleaseNupkgs
@@ -241,21 +240,6 @@ Function Install-DotnetCLI {
         Channel = 'LTS'
         # Version = 'latest'
         # Channel = $CliTargetBranch.Trim()
-    }
-    
-    Install-DotnetCLICommon $Force $cli
-}
-
-Function Install-DotnetCLIToILMergePack {
-    [CmdletBinding()]
-    param(
-        [switch]$Force
-    )
-
-    $cli = @{
-        Root = $CLIRootForPack
-        Version = '2.1.300'
-        Channel = 'LTS'
     }
     
     Install-DotnetCLICommon $Force $cli
